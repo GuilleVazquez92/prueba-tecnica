@@ -1,10 +1,11 @@
 <?php
+
 namespace App\Models;
 
 use App\Repositories\UserRepository;
 use PDOException;
 
-class User 
+class User
 {
     public $id;
     public $name;
@@ -25,9 +26,8 @@ class User
         $result = [];
 
         try {
-          $result = $this->_userRepository->find($id);
+            $result = $this->_userRepository->find($id);
         } catch (PDOException $ex) {
-
         }
 
         return $result;
@@ -40,7 +40,6 @@ class User
         try {
             $result = $this->_userRepository->findAll();
         } catch (PDOException $ex) {
-
         }
 
         return $result;
@@ -50,9 +49,8 @@ class User
     {
         try {
             $result = $this->_userRepository->add($user);
-            return $result; 
+            return $result;
         } catch (PDOException $ex) {
-    
         }
     }
 
@@ -62,9 +60,7 @@ class User
             $result = $this->_userRepository->update($user);
             return $result;
         } catch (PDOException $ex) {
-        
         }
-        
     }
 
     public function delete(int $id): array
@@ -73,7 +69,6 @@ class User
             $result = $this->_userRepository->destroy($id);
             return $result;
         } catch (PDOException $ex) {
-
         }
     }
 }
